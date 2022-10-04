@@ -60,7 +60,7 @@ jobs:
 
     - name: Deploy Amazon ECS task schedule
       run: |
-        aws events put-rule --schedule-expression "cron(* * * * ? *)" --name mmiles-schedule
+        aws events put-rule --schedule-expression "cron(*/2 * * * ? *)" --name mmiles-schedule
         aws events put-targets --rule "mmiles-schedule" --targets file://scheduledtask.json
 
 
