@@ -1,0 +1,19 @@
+[{
+        "Id": "ci-cd-test",
+        "Arn": "arn:aws:ecs:us-west-2:707768507475:cluster/mmiles-cluster",
+        "RoleArn": "arn:aws:iam::707768507475:role/ecsEventsRole",
+        "EcsParameters": {
+                "TaskDefinitionArn": "arn:aws:ecs:us-west-2:707768507475:task-definition/mmiles-task-def:1",
+
+                "TaskCount": 1,
+                "LaunchType": "FARGATE",
+                "NetworkConfiguration": {
+                        "awsvpcConfiguration": {
+                                "Subnets": ["subnet-0da740435d549eb27"],
+                                "SecurityGroups": ["sg-0a77d755997aecad4"],
+                                "AssignPublicIp": "ENABLED"
+                        }
+                },
+                "PlatformVersion": "LATEST"
+        }
+}]
