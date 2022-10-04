@@ -1,4 +1,4 @@
 import pandas as pd
-from job import *
+#from job import *
 
-func('Print this string')
+print('Print this string')
