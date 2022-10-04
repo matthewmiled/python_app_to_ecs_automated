@@ -1,0 +1,16 @@
+{
+    "family": "mmiles-task-family",
+    "networkMode": "awsvpc",
+    "containerDefinitions": [
+        {
+            "name": "mmiles-container",
+            "image": "707768507475.dkr.ecr.us-west-2.amazonaws.com/mmiles-ecr:latest"
+            "essential": true
+        }
+    ],
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "cpu": "256",
+    "memory": "512"
+}
