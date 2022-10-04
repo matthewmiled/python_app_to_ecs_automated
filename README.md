@@ -14,7 +14,6 @@ This project template builds on the deployment principles described in `python_a
 
 5. If the tests pass, the PR can be approved and merged. A second workflow (build_and_deploy.yml) will trigger when it detects a merged PR. This workflow builds the docker image, pushes to AWS ECR, then deploys any application changes or scheduling changes to the task definition in ECR. Ensure that the ECS cluster is already set up by following the steps below.
 
-
 # User Configuration
 
 1. Create a AWS ECR and manually push a version of the application docker image to it (with a tag of `latest`). Make a note of the `ECR_REPOSITORY` name.
@@ -38,3 +37,4 @@ If you want to deploy to a service, see the additional [deploy steps](https://do
 
 10. Change the cron schedule to your desired schedule at the bottom of `build_and_deploy.yml`. Note that the syntax is slightly different to cron, see details [here.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html) 
 You can also change the rule `--name` to whatever you want.
+__There are 2 commands - one for adding a schedule and one for removing. Comment out whatever one is not relevant for you. Note that you need to pass the `Id` of the schedule if you are turning off.__
