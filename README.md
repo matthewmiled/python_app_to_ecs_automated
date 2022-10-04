@@ -38,3 +38,5 @@ If you want to deploy to a service, see the additional [deploy steps](https://do
 10. Change the cron schedule to your desired schedule at the bottom of `build_and_deploy.yml`. Note that the syntax is slightly different to cron, see details [here.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html) 
 You can also change the rule `--name` to whatever you want.
 __There are 2 commands - one for adding a schedule and one for removing. Comment out whatever one is not relevant for you. Note that you need to pass the `Id` of the schedule if you are turning off.__
+
+11. Add you `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY` and `AWS_REGION` to the secrets section of this repo (in the settings). 
