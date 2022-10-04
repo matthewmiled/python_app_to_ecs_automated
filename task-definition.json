@@ -1,5 +1,6 @@
 {
     "family": "mmiles-task-family",
+    "taskRoleArn": "AWSServiceRoleForECS",
     "networkMode": "awsvpc",
     "containerDefinitions": [
         {
