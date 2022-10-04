@@ -9,11 +9,9 @@ on:
     types:
       - closed
 env:
-  ECR_REPOSITORY: mmiles-ecr           # set this to your Amazon ECR repository name
-  ECS_SERVICE: mmiles-service                 # set this to your Amazon ECS service name
-  ECS_CLUSTER: mmiles-cluster                 # set this to your Amazon ECS cluster name
-  ECS_TASK_DEFINITION: task-definition.json # set this to the path to your Amazon ECS task definition
-                                               # file, e.g. .aws/task-definition.json
+  ECR_REPOSITORY: mmiles-ecr
+  ECS_CLUSTER: mmiles-cluster
+  ECS_TASK_DEFINITION: task-definition.json
   CONTAINER_NAME: mmiles-container
 
 jobs:
@@ -60,13 +58,12 @@ jobs:
         container-name: ${{ env.CONTAINER_NAME }}
         image: ${{ steps.build-image.outputs.image }}
 
-    - name: Deploy Amazon ECS task definition
-      uses: aws-actions/amazon-ecs-deploy-task-definition@v1
-      with:
-        task-definition: ${{ steps.task-def.outputs.task-definition }}
-        service: ${{ env.ECS_SERVICE }}
-        cluster: ${{ env.ECS_CLUSTER }}
-        wait-for-service-stability: true
+    - name: Deploy Amazon ECS task schedule
+      run: |
+        aws events put-rule --schedule-expression "cron(* * * * ? *)" --name mmiles-schedule
+        aws events put-targets --rule "mmiles-schedule" --targets file://scheduledtask.json
+
+
 
         
 
