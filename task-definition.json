@@ -1,7 +1,7 @@
 {
-    "family": "mmiles-task-family",
+    "family": "mmiles-task-definition-test",
     "taskRoleArn": "AWSServiceRoleForECS",
-    "executionRoleArn": "AWSServiceRoleForECS",
+    "executionRoleArn": "ecsTaskExecutionRole",
     "networkMode": "awsvpc",
     "containerDefinitions": [
         {
