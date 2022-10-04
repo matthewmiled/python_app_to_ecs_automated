@@ -12,7 +12,7 @@ This project template builds on the deployment principles described in `python_a
 
 4. The test.yml workflow will then execute via GitHub actions (the trigger is a push to any branch apart from main). It will install python, install the dependencies and run pytest via a virtual Ubuntu machine.
 
-5. If the tests pass, the PR can be approved and merged. A second workflow (build_and_deploy.yml) will trigger when it detects a merged PR. This workflow builds the docker image, pushes to AWS ECR, then deploys any application changes or scheduling changes to the task definition in ECR. Ensure that the ECS cluster is already set up by following the steps below.
+5. If the tests pass, the PR can be approved and merged. A second workflow (build_and_deploy.yml) will trigger when it detects a merged PR. This workflow builds the docker image, pushes to AWS ECR, then deploys any application changes or scheduling changes to the task definition in ECS Fargate. Ensure that the ECS cluster is already set up by following the steps below.
 
 # User Configuration
 
