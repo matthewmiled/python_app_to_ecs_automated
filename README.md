@@ -20,9 +20,9 @@ This project template builds on the deployment principles described in `python_a
 
 2. Create a cluster in ECS (using Fargate). Make a note of the `ECS_CLUSTER` name.
 
-3. Create a task definition in ECS (using Fargate). In the container definition, point to the image defined above in ECR. Make a note of the container `name` and task definition name (aka `family`).
+3. Create a task definition in ECS using Fargate or EC2. EC2 mode requires you to create at least one EC2 instance and the tasks are then ran via this instance. In the container definition, point to the image defined above in ECR. Make a note of the container `name` and task definition name (aka `family`). Finnaly, select 'Auto-Configure CloudWatch logs' in the container definition so you can see the output of your containerised application every time it runs in the logs section of CloudWatch.
 
-4. Optionally you can create a service in ECS (using Fargate) that uses the task definition defined above. This is used for if you want your application/container to run continuously. For this example project, we just want the application to run every hour, and this can be done with a cron-like scheduler instead. 
+4. Optionally you can create a service in ECS that uses the task definition defined above. This is used for if you want your application/container to run continuously. For this example project, we just want the application to run every hour, and this can be done with a cron-like scheduler instead. 
 If you want to deploy to a service, see the additional [deploy steps](https://docs.github.com/en/actions/deployment/deploying-to-your-cloud-provider/deploying-to-amazon-elastic-container-service) needed in the yml file.
 
 5. Set the `ECR_REPOSITORY`, `ECS_CLUSTER`, and `CONTAINER_NAME` to the relevant names within the environment variables section of `build_and_deploy.yml`.
