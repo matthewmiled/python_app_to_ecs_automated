@@ -40,3 +40,9 @@ You can also change the rule `--name` to whatever you want.
 __There are 2 commands - one for adding a schedule and one for removing. Comment out whatever one is not relevant for you. Note that you need to pass the `Id` of the schedule if you are turning off.__
 
 11. Add you `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY` and `AWS_REGION` to the secrets section of this repo (in the settings). 
+
+# Troubleshooting
+
+* If EC2 instances aren't being created when you create a cluster (not relevant for Fargate type) - check the autoscale group section for why they may not have come up. When you create a instance in the cluster create page, you have to select a subnet - different subnets relate to different AZ's and some ec2 instance types aren't available in some AZ's.
+
+* If the tasks aren't running (either when you execute via cron scheduler or just run them manually) - check CloudTrail logs. 
